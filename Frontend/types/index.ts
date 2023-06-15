@@ -1,3 +1,0 @@
-/*
-To be filled if types are to be used
-*/
