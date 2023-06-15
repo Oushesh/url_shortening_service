@@ -1,41 +1,6 @@
 {
   "sortedMiddleware": [],
   "middleware": {},
-  "functions": {
-    "/api/chat": {
-      "env": [
-        "OPENAI_API_KEY"
-      ],
-      "files": [
-        "server/edge-runtime-webpack.js",
-        "server/pages/api/chat.js"
-      ],
-      "name": "pages/api/chat",
-      "page": "/api/chat",
-      "matchers": [
-        {
-          "regexp": "^/api/chat$"
-        }
-      ],
-      "wasm": [],
-      "assets": []
-    },
-    "/api/fetch_heroku_stream": {
-      "env": [],
-      "files": [
-        "server/edge-runtime-webpack.js",
-        "server/pages/api/fetch_heroku_stream.js"
-      ],
-      "name": "pages/api/fetch_heroku_stream",
-      "page": "/api/fetch_heroku_stream",
-      "matchers": [
-        {
-          "regexp": "^/api/fetch_heroku_stream$"
-        }
-      ],
-      "wasm": [],
-      "assets": []
-    }
-  },
+  "functions": {},
   "version": 2
 }
