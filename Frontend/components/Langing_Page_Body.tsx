@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import axios from 'axios';
 import FAQ from './FAQ';
-import Capabilities from './Capabilities';
+import axios from 'axios';
 
 export default function LandingPageBody() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,16 +16,21 @@ export default function LandingPageBody() {
     setShortUrl(event.target.value);
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
 
     // Call the API with the longUrl and shortUrl values
+    // You can use libraries like axios or fetch to make the API call
+    // Replace the placeholders below with your actual API endpoint and data format
+
     const apiEndpoint = 'https://your-api-endpoint.com';
     const requestData = {
       longUrl,
       shortUrl,
     };
 
+    // Example using axios library
+    // Replace with your own API call implementation
     axios.post(apiEndpoint, requestData)
       .then((response) => {
         // Handle the API response
@@ -50,7 +54,19 @@ export default function LandingPageBody() {
     <>
       <div className="min-h-screen flex flex-col justify-center items-center">
         <main className="flex flex-col justify-center items-center">
-          {/* Rest of the code */}
+          <div className="space-y-1 flex flex-col justify-center items-center">
+            <h1 className="text-4xl font-bold justify-center">Save time and</h1>
+            <h1 className="text-4xl font-bold justify-center">boost productivity in</h1>
+
+            <div className="text-4xl text-[#075985]">
+              {' '}
+              <span className="font-bold">{items[currentIndex]}</span>.
+            </div>
+          </div>
+
+          <div className="mt-8 text-m text-semi-bold">AI Assistant that integrates with any software to</div>
+
+          <div className="text-m text-semi-bold">perform tasks on your behalf</div>
 
           <div className="mt-3">
             <div className="flex flex-col space-y-5">
@@ -83,10 +99,30 @@ export default function LandingPageBody() {
                 </button>
               </form>
 
-              {/* Rest of the code */}
+              <a href="https://openai.com/product/gpt-4">
+                <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800">
+                  <div className="bg-green-400 rounded-lg">
+                    <Image
+                      src="/icons/GPT-4.png"
+                      width={30}
+                      height={30}
+                      className=""
+                      alt={''}
+                    />
+                  </div>
+                  Powered by GPT-4
+                </div>
+              </a>
+
+              <a href="/Try_for_Free">
+                <div className="justify-center text-xl flex items-center p-4 rounded-lg cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700">
+                  Try for Free*
+                </div>
+              </a>
             </div>
-            {/* Rest of the code */}
+            * No cards required for Trial
           </div>
+          {/* Rest of the code */}
         </main>
       </div>
       {/* Rest of the code */}
