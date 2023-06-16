@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import FAQ from './FAQ';
+
 import axios from 'axios';
 
 export default function LandingPageBody() {
