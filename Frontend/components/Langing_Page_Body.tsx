@@ -5,6 +5,43 @@ import Capabilities from './Capabilities';
 
 export default function LandingPageBody() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [longUrl, setLongUrl] = useState('');
+  const [shortUrl, setShortUrl] = useState('');
+
+  const handleLongUrlChange = (event) => {
+    setLongUrl(event.target.value);
+  };
+
+  const handleShortUrlChange = (event) => {
+    setShortUrl(event.target.value);
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    // Call the API with the longUrl and shortUrl values
+    // You can use libraries like axios or fetch to make the API call
+    // Replace the placeholders below with your actual API endpoint and data format
+
+    const apiEndpoint = 'https://your-api-endpoint.com';
+    const requestData = {
+      longUrl,
+      shortUrl,
+    };
+
+    // Example using axios library
+    // Replace with your own API call implementation
+    axios.post(apiEndpoint, requestData)
+      .then((response) => {
+        // Handle the API response
+        console.log(response.data);
+      })
+      .catch((error) => {
+        // Handle the API error
+        console.error(error);
+      });
+  };
+
   const items = [
     'note taking',
     'customer support',
@@ -33,19 +70,33 @@ export default function LandingPageBody() {
 
           <div className="mt-3">
             <div className="flex flex-col space-y-5">
-              <form>
+              <form onSubmit={handleFormSubmit}>
                 <input
                   type="text"
                   name="short_url"
                   placeholder="Short URL"
                   className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
+                  value={shortUrl}
+                  onChange={handleShortUrlChange}
                 />
                 <input
                   type="text"
                   name="long_url"
                   placeholder="Long URL"
                   className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
+                  value={longUrl}
+                  onChange={handleLongUrlChange}
                 />
+                <button type="submit" className="justify-center flex text-xl w-full px-4 py-2 text-zinc-200 bg-zinc-900 border-[1px] border-zinc-700 focus:bg-slate-200 rounded-tl-full rounded-bl-full rounded-br-full rounded-tr-full focus:outline-none focus:ring-[1px] focus:ring-sky-500 placeholder:text-zinc-400">
+                  <Image
+                    src="/icons/calendar.svg"
+                    width={30}
+                    height={30}
+                    className=""
+                    alt={''}
+                  />
+                  Request Demo
+                </button>
               </form>
 
               <a href="https://openai.com/product/gpt-4">
@@ -68,50 +119,13 @@ export default function LandingPageBody() {
                   Try for Free*
                 </div>
               </a>
-
-              <a
-                href="https://calendly.com/oushesh/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="justify-center flex text-xl w-full px-4 py-2 text-zinc-200 bg-zinc-900 border-[1px] border-zinc-700 focus:bg-slate-200 rounded-tl-full rounded-bl-full rounded-br-full rounded-tr-full focus:outline-none focus:ring-[1px] focus:ring-sky-500 placeholder:text-zinc-400">
-                  <Image
-                    src="/icons/calendar.svg"
-                    width={30}
-                    height={30}
-                    className=""
-                    alt={''}
-                  />
-                  Request Demo
-                </div>
-              </a>
             </div>
             * No cards required for Trial
           </div>
-
-          <div className="mt-20 space-y-1">
-            <h1 className="text-4xl font-bold">Productivity</h1>
-          </div>
-          <div className="space-y-5 flex">
-            <h1 className="text-4xl font-bold">without maintenance</h1>
-          </div>
+          {/* Rest of the code */}
         </main>
-
-        <div className="space-x-3 space-y-0.5 flex">
-          Talk to Real Estate Bot on:
-          <Image src="/icons/notion.png" width={30} height={30} className="" alt={''} />
-          <Image src="/icons/mail_contact.png" width={30} height={30} className="" alt={''} />
-          <Image src="/icons/telegram.png" width={30} height={30} className="" alt={''} />
-          <Image src="/icons/whatsapp.png" width={30} height={30} className="" alt={''} />
-        </div>
       </div>
-
-      <div className="space-y-[10px]">
-        <Capabilities />
-      </div>
-      <div className="space-y-[10px]">
-        <FAQ />
-      </div>
+      {/* Rest of the code */}
     </>
   );
 }
