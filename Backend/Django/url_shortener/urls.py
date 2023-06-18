@@ -16,6 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from ninja import NinjaAPI
+from ninja import Schema
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
+#next for ninja api we add the routers.
+api = NinjaAPI()
+api.add_router("/shorten",shorten)
+api.add_router("lengthen",lengthen)
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/",api.urls)
 ]
+
+#We can also add the option for settings debug or other things here.
