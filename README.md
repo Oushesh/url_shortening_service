@@ -38,3 +38,4 @@ The TEAM23 GmbH Team
    * Move the app folder out of the project for deployment purposes.
      * such that the app and the project folder remains similar.
    * once done set the views for the api with Ninja.
+   * 

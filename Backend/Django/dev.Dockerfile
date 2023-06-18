@@ -4,8 +4,8 @@ ARG PORT=8000
 LABEL maintainer="oushesh"
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /courtneyryan
-COPY requirements.txt /courtneyryan/
+WORKDIR /url_shortener
+COPY requirements.txt /url_shortener/
 
 RUN apt update && \
 	apt install build-essential && \
@@ -13,7 +13,7 @@ RUN apt update && \
 	pip install --upgrade pip && \
 	pip install --no-cache-dir -r requirements.txt
 
-COPY . /courtneyryan/
+COPY . /url_shortener/
 
-RUN chmod a+x /courtneyryan/dev-docker-entrypoint.sh
-ENTRYPOINT ["/courtneyryan/dev-docker-entrypoint.sh"]
+RUN chmod a+x /url_shortener/dev-docker-entrypoint.sh
+ENTRYPOINT ["/url_shortener/dev-docker-entrypoint.sh"]
