@@ -1,3 +1,4 @@
 .DS_Store
 Frontend/node_modules
 Frontend/.next/*
+.idea/*

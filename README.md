@@ -31,4 +31,6 @@ All the best and happy coding,
 
 The TEAM23 GmbH Team
 
-### 
+## Django:
+   * django-admin startproject url_shortener
+   * python manage.py runserver 
