@@ -1,22 +1,19 @@
 from typing import Union
-from fastapi import FastAPI
 from pydantic import BaseModel
 from cachetools import TTLCache
-
 from fastapi import FastAPI
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 import aioredis
 import hashlib
+
 from hashlib import md5
 from itertools import count
 
 counter = count()
 
 app = FastAPI()
-cache = FastAPICache(backend=RedisBackend(aioredis.from_url("redis://localhost")))
-
-app = FastAPI()
+redis_cache = await aioredis.create_redis_pool("redis://localhost")
 
 class Item(BaseModel):
     name: str
