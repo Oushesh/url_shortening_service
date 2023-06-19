@@ -11,10 +11,8 @@ from django.core.cache import cache
 
 counter = count()
 router = Router()
-
 class URLInput(BaseModel):
     url: str
-
 class URLOutput(BaseModel):
     short_url: str
 
