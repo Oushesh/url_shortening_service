@@ -22,13 +22,12 @@ from ninja import Schema
 from django.conf import settings
 from django.conf.urls.static import static
 
-
+from url_api.v1.routers.shorten_url import router as
 
 #next for ninja api we add the routers.
 api = NinjaAPI()
 api.add_router("/shorten",shorten)
 api.add_router("lengthen",lengthen)
-
 
 urlpatterns = [
     path("admin/", admin.site.urls),
