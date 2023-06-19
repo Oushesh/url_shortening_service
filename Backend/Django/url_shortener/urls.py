@@ -16,18 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from ninja import NinjaAPI
-from ninja import Schema
+from ninja import NinjaAPI, Schema
 
 from django.conf import settings
 from django.conf.urls.static import static
 
-from url_api.v1.routers.shorten_url import router as
+from url_app.api.v1.routers.decode_url import router as decode_url_router
+from url_app.api.v1.routers.encode_url import router as encode_url_router
+
+from pathlib import Path
 
 #next for ninja api we add the routers.
 api = NinjaAPI()
-api.add_router("/shorten",shorten)
-api.add_router("lengthen",lengthen)
+api.add_router("/encode_url",encode_url_router)
+api.add_router("/decode_url",decode_url_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
