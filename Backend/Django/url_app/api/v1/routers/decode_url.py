@@ -14,8 +14,8 @@ def decode_url(request,short_url: str):
 
     # Access the cached dictionary
     url_mapping = cache.get("url_mapping",{})
+    print ("cache",url_mapping)
     #Example dict:
-    url_mapping = {"abcd":"https://www.google.com"}
     for key, value in url_mapping.items():
         if key.startswith(short_url[:6]):
             return {"long_url": value}
