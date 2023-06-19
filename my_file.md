@@ -15,4 +15,34 @@
    3. https://www.google.com/search?q=vgg19+pretrined+weights+in+pickle+format&rlz=1C1SQJL_enDE828DE828&oq=vgg19+pretrined+weights+in+pickle+format&aqs=chrome..69i57.11720j0j4&sourceid=chrome&ie=UTF-8
    4.  
 
-## 
+## Technical Debate on the url shortening service:
+   
+    * URL Shortening Logic (Encoding):
+     The hashing I went for is MD5. People can use others like Base62 
+     Encoding etc...
+
+     The mD5 only uses 7 characters and the encoding produces 128bit characters. 
+     To prevent collisoin we save the results in dictionary either in redis or 
+     postgresql database (I prefere Supabase)
+
+    The advantages is that this approach MD5 saves some space. Space
+    (storage) is more expensive than compute for these kind of applications
+    unless you are doing ML like which requires GPU compute.
+
+    To solve the collision problem we will use a Counter from python library
+    itertools. This will guarantee deduplication since the counter always 
+    increases thus is unique. Appending the counter value at the end of the 
+    md5 encoded string ensures no 2 strings are the same. 
+
+   Also all encoded strings are saved in memory (cache) and checked
+   before encoding and decoding. (no duplicate entries)
+   
+   For scalablity just use posgresql or redis database. During scaling
+   we can use multiserver approach and also to ensure that in the 
+   case one server fails  then another server (the counter) could
+   have the same number. So instead every server has a range then can count
+   upto and thus if one fails we ensure no overlap.
+
+## Reference:
+   * https://www.geeksforgeeks.org/system-design-url-shortening-service/
+   * 

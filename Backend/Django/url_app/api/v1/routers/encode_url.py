@@ -31,3 +31,4 @@ def encode_url(request,url_input: str):
     return {"short_url": short_url}
 
 ##Keep the values in Django cache backend --> I added the settings
+#django cache

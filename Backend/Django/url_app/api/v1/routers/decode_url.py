@@ -1,14 +1,18 @@
 import os
 from dotenv import load_dotenv
 from ninja import Router
+from itertools import count
+from django.http import HttpResponseRedirect
+
 router = Router()
+counter = count()
 
 from django.core.cache import cache
 from django.http import JsonResponse
 
 #Read the collections
 @router.get("/decode_url")
-def decode_url(request,short_url: str):
+def decode_url(request,short_url: str,redirect:bool = False):
     assert (isinstance(short_url,str))
     # Access the cached dictionary
     url_mapping = cache.get("url_mapping",{})
