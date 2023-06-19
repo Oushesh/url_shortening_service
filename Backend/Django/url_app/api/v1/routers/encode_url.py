@@ -23,5 +23,6 @@ def encode_url(request,url_input: str,url_mapping:dict):
     md5_hash = md5(long_url.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
     url_mapping[short_url] = long_url
+    print (url_input)
     print (url_mapping)
     return {"short_url": short_url}
