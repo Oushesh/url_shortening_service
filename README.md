@@ -42,7 +42,8 @@ The TEAM23 GmbH Team
 
 ## FastAPI
    * install and dockerize
+   * https://fastapi.tiangolo.com/lo/
+   * docker for deployment.
 
 ## Deployment: 
-   * Heroku:
-   * 
+   * Heroku
