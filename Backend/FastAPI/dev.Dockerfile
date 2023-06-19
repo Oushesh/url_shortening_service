@@ -13,7 +13,8 @@ RUN apt update && \
 	pip install --upgrade pip && \
 	pip install --no-cache-dir -r requirements.txt
 
+COPY dev-docker-entrypoint.sh ./
 COPY . ./
 
-RUN chmod a+x ./dev-docker-entrypoint.sh
-ENTRYPOINT ["dev-docker-entrypoint.sh"]
+RUN chmod a+x dev-docker-entrypoint.sh
+ENTRYPOINT ["./dev-docker-entrypoint.sh"]

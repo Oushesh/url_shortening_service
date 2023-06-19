@@ -1,2 +1,4 @@
 fastapi
 fastapi_cache
+uvicorn[standard]
+cachetools
