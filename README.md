@@ -47,3 +47,9 @@ The TEAM23 GmbH Team
 
 ## Deployment: 
    * Heroku
+
+## Pre Commit Fixes and Hooks 
+
+## Connection with Frontend:
+
+## isort and black add for correctness of software.
