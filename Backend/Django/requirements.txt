@@ -9,7 +9,6 @@ apispec==5.2.2
 appnope==0.1.3
 argcomplete==3.0.8
 asgiref==3.6.0
-astroid==2.13.5
 asttokens==2.2.1
 astunparse==1.6.3
 async-timeout==4.0.2
@@ -21,10 +20,6 @@ beautifulsoup4==4.11.1
 billiard==3.6.4.0
 bitarray==2.6.1
 black==22.12.0
-bleach==6.0.0
-blinker==1.6.2
-booking-scraper==1.0.1
-botocore==1.29.111
 braceexpand==0.1.7
 Brotli==1.0.9
 bs4==0.0.1
@@ -227,9 +222,6 @@ pycodestyle==2.9.1
 pycparser==2.21
 pycryptodome==3.16.0
 pydantic==1.10.7
-pydeck==0.8.0
-pyDeprecate==0.3.1
-pydub==0.25.1
 pyee==9.0.4
 pyflowchart==0.2.3
 Pygments==2.15.1
@@ -292,7 +284,6 @@ stack-data==0.6.2
 starlette==0.27.0
 stevedore==5.0.0
 sympy==1.12
-tabulate==0.9.0
 tenacity==8.2.2
 termcolor==2.3.0
 terminado==0.17.1
@@ -329,7 +320,6 @@ whitenoise==6.2.0
 widgetsnbextension==4.0.7
 wrapt==1.15.0
 WTForms==3.0.1
-xmltodict==0.13.0
 yapf==0.33.0
 yarl==1.9.2
 zipp==3.15.0
