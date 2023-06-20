@@ -55,4 +55,7 @@ The TEAM23 GmbH Team
 ## isort and black add for correctness of software.
 
 One tempting solution is to append the users IP address since IP adresses are 
-unique  to compensate for the fact that MS5 hash creas
+unique  to compensate for the fact that MS5 hash creates collision.
+
+But it can be that 2 users are from the same router. Then they
+will have the same IP address which would not work.
