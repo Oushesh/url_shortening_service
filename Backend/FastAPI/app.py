@@ -29,3 +29,5 @@ def decode_url(short_url: str, redirect: bool = False):
             return {"long_url": long_url}
     else:
         return {"error": "Short URL not found"}
+
+## Now what?
