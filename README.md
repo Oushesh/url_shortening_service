@@ -49,6 +49,7 @@ The TEAM23 GmbH Team
    * Heroku
 
 ## Pre Commit Fixes and Hooks 
+   * 
 
 ## Connection with Frontend:
 
