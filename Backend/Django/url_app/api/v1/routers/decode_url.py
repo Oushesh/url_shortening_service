@@ -3,12 +3,12 @@ from dotenv import load_dotenv
 from ninja import Router
 from itertools import count
 from django.http import HttpResponseRedirect
+from django.core.cache import cache
+
 
 router = Router()
 counter = count()
 
-from django.core.cache import cache
-from django.http import JsonResponse
 
 #Read the collections
 @router.get("/decode_url")
@@ -19,6 +19,7 @@ def decode_url(request,short_url: str,redirect:bool = False):
     print ("cache",url_mapping)
     #Example dict:
     for key, value in url_mapping.items():
-        if key.startswith(short_url[:6]):
+        #if key.startswith(short_url[:6]):
+        if key.startswith(short_url):
             return {"long_url": value}
     return {"error": "Short URL not found"}
