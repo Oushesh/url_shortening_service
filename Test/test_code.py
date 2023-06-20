@@ -26,3 +26,4 @@ if __name__ == "__main__":
     shortURL = idToShortURL(id)
     print("Short URL from 12345 is : ", shortURL)
     print("ID from", shortURL, "is : ", shortURLToId(shortURL))
+    print ("Successful")
