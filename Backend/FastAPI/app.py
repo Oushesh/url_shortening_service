@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from fastapi.middleware.cors import CORSMiddleware
 from cachetools import Cache
 from hashlib import md5
 from itertools import count
@@ -7,6 +8,28 @@ from itertools import count
 app = FastAPI()
 cache = Cache(maxsize=100)  # Unbounded cache
 counter = count(1)  # Counter starting from 1
+
+
+
+app = FastAPI()
+
+# Configure CORS settings
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    # Add more allowed origins if needed
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 @app.get("/encode_url")
 def encode_url(url_input: str):

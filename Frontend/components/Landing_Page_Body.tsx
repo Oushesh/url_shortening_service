@@ -1,12 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import FAQ from './FAQ';
-import Capabilities from './Capabilities';
-import axios from 'axios';
 
-// Define the interface for the API response
-interface APIResponse {
+export interface APIResponse {
   short_url: string;
 }
 
@@ -16,7 +12,9 @@ export default function LandingPageBody() {
   const [shortUrl, setShortUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('');
 
-  const [apiResponse, setApiResponse] = useState({});
+  const [apiResponse, setApiResponse] = useState<APIResponse | null>(null);
+  const [fetchOutput, setFetchOutput] = useState('');
+
   const handleLongUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLongUrl(event.target.value);
   };
@@ -25,28 +23,53 @@ export default function LandingPageBody() {
     setShortUrl(event.target.value);
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Query the API endpoint with the desired parameters
-    const apiEndpoint = 'http://127.0.0.1:8000/encode_url';
-    const requestData = {
-      params: {
-        url_input: longUrl,
-      },
-    };
+    const url = new URL('http://127.0.0.1:8000/encode_url');
+    url.searchParams.append('url_input', longUrl);
 
-    axios
-  .get(apiEndpoint, requestData)
-  .then((response) => {
-    // Handle the API response
-    console.log(response.data);
-    setApiResponse(response.data);
-  })
-  .catch((error) => {
-    // Handle the API error
-    console.error(error);
-  });
+    try {
+      const response = await fetch(url.toString(), {
+        method: 'GET',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setApiResponse(data);
+        setFetchOutput(JSON.stringify(data));
+      } else {
+        console.error('API request failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('API request failed:', error);
+    }
+  };
+
+  //Handle Submit for the LongURL
+  const handleLongFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const url = new URL('http://127.0.0.1:8000/decode_url');
+    url.searchParams.append('url_input', shortUrl);
+
+    try {
+      const response = await fetch(url.toString(), {
+        method: 'GET',
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setApiResponse(data);
+        setFetchOutput(JSON.stringify(data));
+      } else {
+        console.error('API request failed:', response.statusText);
+      }
+    } catch (error) {
+      console.error('API request failed:', error);
+    }
+  };
+
 
 
   const items = [
@@ -88,7 +111,9 @@ export default function LandingPageBody() {
             AI Assistant that integrates with any software to
           </div>
 
-          <div className="text-m text-semi-bold">perform tasks on your behalf</div>
+          <div className="text-m text-semi-bold">
+            perform tasks on your behalf
+          </div>
           <div className="mt-3">
             <div className="flex flex-col space-y-5">
               <a href="https://openai.com/product/gpt-4">
@@ -158,12 +183,19 @@ export default function LandingPageBody() {
           </form>
 
           {apiResponse && (
-            <div className="mt-4">
+            <div className="mt-4 text-white">
               <h3>Decoded URL:</h3>
               <p>{apiResponse.short_url}</p>
             </div>
           )}
 
+
+          {fetchOutput && (
+            <div className="mt-4">
+              <h3>Fetch Output:</h3>
+              <pre>{fetchOutput}</pre>
+            </div>
+          )}
 
           <div className="mt-20 space-y-1">
             <h1 className="text-4xl font-bold">Productivity</h1>
@@ -204,12 +236,6 @@ export default function LandingPageBody() {
             alt={''}
           />
         </div>
-      </div>
-      <div className="space-y-[10px]">
-        <Capabilities />
-      </div>
-      <div className="space-y-[10px]">
-        <FAQ />
       </div>
     </>
   );
