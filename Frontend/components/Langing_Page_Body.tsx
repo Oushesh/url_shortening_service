@@ -23,6 +23,7 @@ export default function LandingPageBody() {
     event.preventDefault();
 
     // Call the API with the longUrl and shortUrl values
+    // Call
     const apiEndpoint = 'https://your-api-endpoint.com';
     const requestData = {
       longUrl,
