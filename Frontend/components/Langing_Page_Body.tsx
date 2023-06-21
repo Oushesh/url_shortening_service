@@ -20,28 +20,35 @@ export default function LandingPageBody() {
   };
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    // Call the API with the longUrl and shortUrl values
-    // Call
-    const apiEndpoint = 'https://your-api-endpoint.com';
-    const requestData = {
-      longUrl,
-      shortUrl,
-    };
-
-    axios
-      .post(apiEndpoint, requestData)
-      .then((response) => {
-        // Handle the API response
-        console.log(response.data);
-        setDecodedUrl(response.data.longUrl);
-      })
-      .catch((error) => {
-        // Handle the API error
-        console.error(error);
-      });
+  // Query the API endpoint. All you need is the url and the payload.
+  const apiEndpoint = 'http://127.0.0.1:8000';
+  const requestData = {
+    longUrl,
+    shortUrl,
   };
+
+  axios
+    .get(apiEndpoint, {
+      params: {
+        url_input: requestData.longUrl,
+      },
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+    .then((response) => {
+      // Handle the API response
+      console.log(response.data);
+      setDecodedUrl(response.data.longUrl);
+    })
+    .catch((error) => {
+      // Handle the API error
+      console.error(error);
+    });
+};
+
 
   const items = [
     'note taking',
