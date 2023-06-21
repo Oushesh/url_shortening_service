@@ -10,8 +10,8 @@ export default function LandingPageBody() {
   const [longUrl, setLongUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('');
-  const [apiResponse, setApiResponse] = useState('');
 
+  const [apiResponse, setApiResponse] = useState({});
   const handleLongUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLongUrl(event.target.value);
   };
@@ -32,18 +32,17 @@ export default function LandingPageBody() {
     };
 
     axios
-      .get(apiEndpoint, requestData)
-      .then((response) => {
-        // Handle the API response
-        console.log(response.data);
-        setDecodedUrl(response.data.long_url);
-        setApiResponse(response.data);
-      })
-      .catch((error) => {
-        // Handle the API error
-        console.error(error);
-      });
-  };
+  .get(apiEndpoint, requestData)
+  .then((response) => {
+    // Handle the API response
+    console.log(response.data);
+    setApiResponse(response.data);
+  })
+  .catch((error) => {
+    // Handle the API error
+    console.error(error);
+  });
+
 
   const items = [
     'note taking',
@@ -153,13 +152,14 @@ export default function LandingPageBody() {
             </button>
           </form>
 
-          {apiResponse && (
-            <div className="mt-4">
-              <h3>Decoded URL:</h3>
-              <p>{apiResponse.long_url}</p>
-              <p>Other response data: {JSON.stringify(apiResponse)}</p>
-            </div>
-          )}
+          {Object.keys(apiResponse).length > 0 && (
+  <div className="mt-4">
+    <h3>Decoded URL:</h3>
+    <p>{apiResponse.longUrl}</p>
+    <p>Other response data: {JSON.stringify(apiResponse)}</p>
+  </div>
+)}
+
 
           <div className="mt-20 space-y-1">
             <h1 className="text-4xl font-bold">Productivity</h1>
