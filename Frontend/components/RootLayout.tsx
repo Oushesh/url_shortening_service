@@ -1,6 +1,6 @@
 import { Footer } from "./Footer";
 import Header from "./Header";
-import LandingPageBody from "./Langing_Page_Body";
+import LandingPageBody from "./Landing_Page_Body";
 
 export const metadata = {
   title: "Create Next App",

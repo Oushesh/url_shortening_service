@@ -49,7 +49,6 @@ export default function LandingPageBody() {
     });
 };
 
-
   const items = [
     'note taking',
     'customer support',
