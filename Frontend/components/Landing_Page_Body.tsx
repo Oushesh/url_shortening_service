@@ -166,22 +166,22 @@ export default function LandingPageBody() {
               value={shortUrl}
               onChange={handleShortUrlChange}
             />
-            <input
-              type="text"
-              name="long_url"
-              placeholder="Long URL"
-              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
-              value={longUrl}
-              onChange={handleLongUrlChange}
-            />
             <button
               type="submit"
               className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
             >
-              Encode URL
             </button>
           </form>
-
+          <form onSubmit={handleLongFormSubmit}>
+             <input
+                type="text"
+                name="long_url"
+                placeholder="Long URL"
+                className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
+                value={longUrl}
+                onChange={handleShortUrlChange}
+              />
+          </form>
           {apiResponse && (
             <div className="mt-4 text-white">
               <h3>Decoded URL:</h3>
