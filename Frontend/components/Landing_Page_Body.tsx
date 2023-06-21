@@ -10,6 +10,7 @@ export default function LandingPageBody() {
   const [longUrl, setLongUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
   const [decodedUrl, setDecodedUrl] = useState('');
+  const [apiResponse, setApiResponse] = useState('');
 
   const handleLongUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLongUrl(event.target.value);
@@ -20,29 +21,29 @@ export default function LandingPageBody() {
   };
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  // Query the API endpoint with the desired parameters
-  const apiEndpoint = 'http://127.0.0.1:8000/encode_url';
-  const requestData = {
-    params: {
-      url_input: 'https://www.google.com',
-    },
+    // Query the API endpoint with the desired parameters
+    const apiEndpoint = 'http://127.0.0.1:8000/encode_url';
+    const requestData = {
+      params: {
+        url_input: longUrl,
+      },
+    };
+
+    axios
+      .get(apiEndpoint, requestData)
+      .then((response) => {
+        // Handle the API response
+        console.log(response.data);
+        setDecodedUrl(response.data.long_url);
+        setApiResponse(response.data);
+      })
+      .catch((error) => {
+        // Handle the API error
+        console.error(error);
+      });
   };
-
-  axios
-    .get(apiEndpoint, requestData)
-    .then((response) => {
-      // Handle the API response
-      console.log(response.data);
-      setDecodedUrl(response.data.long_url);
-    })
-    .catch((error) => {
-      // Handle the API error
-      console.error(error);
-    });
-};
-
 
   const items = [
     'note taking',
@@ -152,10 +153,11 @@ export default function LandingPageBody() {
             </button>
           </form>
 
-          {decodedUrl && (
+          {apiResponse && (
             <div className="mt-4">
               <h3>Decoded URL:</h3>
-              <p>{decodedUrl}</p>
+              <p>{apiResponse.long_url}</p>
+              <p>Other response data: {JSON.stringify(apiResponse)}</p>
             </div>
           )}
 
