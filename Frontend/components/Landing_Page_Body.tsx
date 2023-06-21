@@ -5,6 +5,11 @@ import FAQ from './FAQ';
 import Capabilities from './Capabilities';
 import axios from 'axios';
 
+// Define the interface for the API response
+interface APIResponse {
+  short_url: string;
+}
+
 export default function LandingPageBody() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [longUrl, setLongUrl] = useState('');
@@ -152,13 +157,12 @@ export default function LandingPageBody() {
             </button>
           </form>
 
-          {Object.keys(apiResponse).length > 0 && (
-  <div className="mt-4">
-    <h3>Decoded URL:</h3>
-    <p>{apiResponse.longUrl}</p>
-    <p>Other response data: {JSON.stringify(apiResponse)}</p>
-  </div>
-)}
+          {apiResponse && (
+            <div className="mt-4">
+              <h3>Decoded URL:</h3>
+              <p>{apiResponse.short_url}</p>
+            </div>
+          )}
 
 
           <div className="mt-20 space-y-1">
