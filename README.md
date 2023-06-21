@@ -62,7 +62,7 @@ But it can be that 2 users are from the same router. Then they
 will have the same IP address which would not work.
 
 ## Frontend:
-   * Project is bootstraped with NextJS
-   * nextjs 
+   * Project is bootstraped with NextJS from here: npx create-next-app@latest
+   * npx create-next-app@latest
    * yarn run build
    * yarn run start
