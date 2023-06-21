@@ -22,32 +22,27 @@ export default function LandingPageBody() {
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault();
 
-  // Query the API endpoint. All you need is the url and the payload.
-  const apiEndpoint = 'http://127.0.0.1:8000';
+  // Query the API endpoint with the desired parameters
+  const apiEndpoint = 'http://127.0.0.1:8000/encode_url';
   const requestData = {
-    longUrl,
-    shortUrl,
+    params: {
+      url_input: 'https://www.google.com',
+    },
   };
 
   axios
-    .get(apiEndpoint, {
-      params: {
-        url_input: requestData.longUrl,
-      },
-      headers: {
-        Accept: 'application/json',
-      },
-    })
+    .get(apiEndpoint, requestData)
     .then((response) => {
       // Handle the API response
       console.log(response.data);
-      setDecodedUrl(response.data.longUrl);
+      setDecodedUrl(response.data.long_url);
     })
     .catch((error) => {
       // Handle the API error
       console.error(error);
     });
 };
+
 
   const items = [
     'note taking',
