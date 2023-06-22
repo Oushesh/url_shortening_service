@@ -52,7 +52,7 @@ export default function LandingPageBody() {
     event.preventDefault();
 
     const url = new URL('http://127.0.0.1:8000/decode_url');
-    url.searchParams.append('url_input', longUrl);
+    url.searchParams.append('short_url', longUrl);
 
     try {
       const response = await fetch(url.toString(), {
@@ -63,6 +63,7 @@ export default function LandingPageBody() {
         const data = await response.json();
         setApiResponse(data);
         setFetchOutput(JSON.stringify(data));
+        console.log(JSON.stringify(data));
       } else {
         console.error('API request failed:', response.statusText);
       }
@@ -210,7 +211,7 @@ export default function LandingPageBody() {
 
           {apiResponse && (
             <div className="mt-4 text-white">
-              <h3>Decoded URL:</h3>
+              <h3>Encoded URL:</h3>
               <p>{apiResponse.short_url}</p>
             </div>
           )}
@@ -221,7 +222,6 @@ export default function LandingPageBody() {
               <p>{apiResponse.long_url}</p>
             </div>
           )}
-
 
           <div className="mt-20 space-y-1">
             <h1 className="text-4xl font-bold">Productivity</h1>
