@@ -29,6 +29,7 @@ export default function LandingPageBody() {
 
     const url = new URL('http://127.0.0.1:8000/encode_url');
     url.searchParams.append('url_input', longUrl);
+    console.log(longUrl);
 
     try {
       const response = await fetch(url.toString(), {
@@ -52,7 +53,7 @@ export default function LandingPageBody() {
     event.preventDefault();
 
     const url = new URL('http://127.0.0.1:8000/decode_url');
-    url.searchParams.append('short_url', longUrl);
+    url.searchParams.append('short_url', shortUrl);
 
     try {
       const response = await fetch(url.toString(), {
@@ -209,14 +210,14 @@ export default function LandingPageBody() {
             </div>
           </div>
 
-          {apiResponse && (
-            <div className="mt-4 text-white">
-              <h3>Encoded URL:</h3>
-              <p>{apiResponse.short_url}</p>
-            </div>
+          {apiResponse && apiResponse.short_url && (
+          <div className="mt-4 text-white">
+          <h3>Encoded URL:</h3>
+            <p>{apiResponse.short_url}</p>
+          </div>
           )}
 
-           {apiResponse && (
+          {apiResponse && apiResponse.long_url && (
             <div className="mt-4 text-white">
               <h3>Decoded URL:</h3>
               <p>{apiResponse.long_url}</p>
