@@ -70,8 +70,6 @@ export default function LandingPageBody() {
     }
   };
 
-
-
   const items = [
     'note taking',
     'customer support',
@@ -153,57 +151,62 @@ export default function LandingPageBody() {
                   Request Demo
                 </div>
               </a>
+              * No cards required for Trial
             </div>
-            * No cards required for Trial
+
+            <div className="space-y-5">
+              <div className="space-y-2">
+                <form onSubmit={handleFormSubmit}>
+                  <input
+                    type="text"
+                    name="short_url"
+                    placeholder="Short URL"
+                    className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full py-4 text-gray-700 text-center"
+                    value={shortUrl}
+                    onChange={handleShortUrlChange}
+                  />
+
+                  <button
+                    type="submit"
+                    className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full"
+                  >
+                    <Image
+                      src="/icons/GPT-4.png"
+                      width={30}
+                      height={30}
+                      className=""
+                      alt={''}
+                    />
+                    GPT-4 Encoding
+                  </button>
+                </form>
+              </div>
+              <form onSubmit={handleLongFormSubmit}>
+                <input
+                  type="text"
+                  name="long_url"
+                  placeholder="Long URL"
+                  className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700 text-center"
+                  value={longUrl}
+                  onChange={handleLongUrlChange}
+                />
+                <button
+                  type="submit"
+                  className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full"
+                >
+                  <Image
+                    src="/icons/GPT-4.png"
+                    width={30}
+                    height={30}
+                    className=""
+                    alt={''}
+                  />
+                  GPT-4 Decoding
+                </button>
+              </form>
+            </div>
           </div>
 
-          <form onSubmit={handleFormSubmit}>
-            <input
-              type="text"
-              name="short_url"
-              placeholder="Short URL"
-              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
-              value={shortUrl}
-              onChange={handleShortUrlChange}
-            />
-
-            <button
-              type="submit"
-              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800"
-            >
-              <Image
-                  src="/icons/GPT-4.png"
-                  width={30}
-                  height={30}
-                  className=""
-                  alt={''}
-              />
-              GPT-4 Encoding
-            </button>
-          </form>
-          <form onSubmit={handleLongFormSubmit}>
-             <input
-                type="text"
-                name="long_url"
-                placeholder="Long URL"
-                className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700 text-center"
-                value={longUrl}
-                onChange={handleShortUrlChange}
-              />
-            <button
-              type="submit"
-              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800"
-            >
-              <Image
-                  src="/icons/GPT-4.png"
-                  width={30}
-                  height={30}
-                  className=""
-                  alt={''}
-              />
-              GPT-4 Decoding
-            </button>
-          </form>
           {apiResponse && (
             <div className="mt-4 text-white">
               <h3>Decoded URL:</h3>
@@ -211,10 +214,9 @@ export default function LandingPageBody() {
             </div>
           )}
 
-
           {fetchOutput && (
             <div className="mt-4">
-              <h3>Fetch Output:</h3>
+              <h3>Result:</h3>
               <pre>{fetchOutput}</pre>
             </div>
           )}
