@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export interface APIResponse {
   short_url: string;
+  long_url:string;
 }
 
 export default function LandingPageBody() {
@@ -214,12 +215,13 @@ export default function LandingPageBody() {
             </div>
           )}
 
-          {fetchOutput && (
-            <div className="mt-4">
-              <h3>Result:</h3>
-              <pre>{fetchOutput}</pre>
+           {apiResponse && (
+            <div className="mt-4 text-white">
+              <h3>Decoded URL:</h3>
+              <p>{apiResponse.long_url}</p>
             </div>
           )}
+
 
           <div className="mt-20 space-y-1">
             <h1 className="text-4xl font-bold">Productivity</h1>
