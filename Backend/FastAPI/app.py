@@ -9,10 +9,6 @@ app = FastAPI()
 cache = Cache(maxsize=100)  # Unbounded cache
 counter = count(1)  # Counter starting from 1
 
-
-
-app = FastAPI()
-
 # Configure CORS settings
 origins = [
     "http://localhost",
