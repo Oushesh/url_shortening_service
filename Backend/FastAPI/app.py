@@ -37,15 +37,17 @@ def encode_url(url_input: str):
     md5_hash = md5(long_url.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
     cache[short_url] = long_url
+    print ("cache originally:",cache)
     return {"short_url": short_url}
 
 @app.get("/decode_url")
 def decode_url(short_url: str, redirect: bool = False):
     long_url = cache.get(short_url)
+    print("cache:", long_url)
     if long_url:
         if redirect:
             if long_url.startswith("http://") or long_url.startswith("https://"):
-                print ("cache:",long_url)
+
                 return RedirectResponse(url=long_url)
             else:
                 return {"error": "Invalid URL format for redirection"}
