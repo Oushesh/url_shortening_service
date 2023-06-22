@@ -166,11 +166,21 @@ export default function LandingPageBody() {
               value={shortUrl}
               onChange={handleShortUrlChange}
             />
-            <button
-              type="submit"
-              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-white hover:bg-slate-200 w-full text-gray-700"
-            >
-            </button>
+
+            <a href="https://openai.com/product/gpt-4">
+                <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800">
+                  <div className="bg-green-400 rounded-lg">
+                    <Image
+                      src="/icons/GPT-4.png"
+                      width={30}
+                      height={30}
+                      className=""
+                      alt={''}
+                    />
+                  </div>
+                  GPT-4 Encoding
+                </div>
+              </a>
           </form>
           <form onSubmit={handleLongFormSubmit}>
              <input
@@ -181,6 +191,19 @@ export default function LandingPageBody() {
                 value={longUrl}
                 onChange={handleShortUrlChange}
               />
+            <button
+              type="submit"
+              className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800"
+            >
+              <Image
+                  src="/icons/GPT-4.png"
+                  width={30}
+                  height={30}
+                  className=""
+                  alt={''}
+              />
+              GPT-4 Decoding
+            </button>
           </form>
           {apiResponse && (
             <div className="mt-4 text-white">
