@@ -30,7 +30,6 @@ export default function LandingPageBody() {
     const url = new URL('http://127.0.0.1:8000/encode_url');
     url.searchParams.append('url_input', longUrl);
     console.log(longUrl);
-
     try {
       const response = await fetch(url.toString(), {
         method: 'GET',
