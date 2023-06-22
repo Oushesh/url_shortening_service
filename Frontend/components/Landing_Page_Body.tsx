@@ -51,7 +51,7 @@ export default function LandingPageBody() {
     event.preventDefault();
 
     const url = new URL('http://127.0.0.1:8000/decode_url');
-    url.searchParams.append('url_input', shortUrl);
+    url.searchParams.append('url_input', longUrl);
 
     try {
       const response = await fetch(url.toString(), {
