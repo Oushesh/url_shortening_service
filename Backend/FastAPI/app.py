@@ -25,12 +25,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
 @app.get("/encode_url")
 def encode_url(url_input: str):
-    long_url = url_input
-    md5_hash = md5(long_url.encode()).hexdigest()
+    print ("encoding input:",url_input)
+    md5_hash = md5(url_input.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
     cache[short_url] = url_input
     print ("cache originally:",cache)

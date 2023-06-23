@@ -28,7 +28,7 @@ export default function LandingPageBody() {
 
   const handleShortUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    console.log('Form input value:', inputValue);
+    //console.log('Form input value:', inputValue);
     setShortUrl(inputValue);
   };
 
@@ -36,7 +36,7 @@ export default function LandingPageBody() {
     event.preventDefault();
 
     const url = new URL('http://127.0.0.1:8000/encode_url');
-    url.searchParams.append('url_input', longUrl);
+    url.searchParams.append('url_input', shortUrl);
     console.log(url);
     try {
       const response = await fetch(url.toString(), {

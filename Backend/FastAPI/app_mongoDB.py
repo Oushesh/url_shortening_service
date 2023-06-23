@@ -34,24 +34,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/encode_url")
 def encode_url(url_input: str):
     print ("input",url_input)
-    long_url = url_input
-    md5_hash = md5(long_url.encode()).hexdigest()
+    md5_hash = md5(url_input.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
 
     # Store the mapping in the database
-    db.urls.insert_one({"short_url": short_url, "long_url": long_url})
+    db.urls.insert_one({"short_url": short_url, "long_url": url_input})
 
     # Print the cache from the database
-    """
+    
     cache = list(db.urls.find())
     print("Cache from MongoDB:")
     for item in cache:
         print(item)
-    """
 
     return {"short_url": short_url}
 
@@ -77,6 +74,7 @@ def decode_url(short_url: str, redirect: bool = False):
             else:
                 return {"error": "Invalid URL format for redirection"}
         else:
+            print ("original_url:", long_url)
             return {"long_url": long_url}
     else:
         return {"error": "Short URL not found"}
