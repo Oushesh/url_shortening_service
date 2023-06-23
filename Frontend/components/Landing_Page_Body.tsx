@@ -229,8 +229,12 @@ export default function LandingPageBody() {
 
           {apiResponse && apiResponse.long_url && (
             <div className="text-xl flex flex-col items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
-              <h3>Decoded URL:</h3>
+              <div>
+              <p>Decoded URL:</p>
+              </div>
+              <div>
               <p>{apiResponse.long_url}</p>
+              </div>
             </div>
           )}
 
