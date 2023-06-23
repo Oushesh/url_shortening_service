@@ -218,9 +218,24 @@ export default function LandingPageBody() {
           {apiResponse && apiResponse.short_url && (
           <div className="mt-4 text-white">
           <h3>Encoded URL:</h3>
-            <p>{apiResponse.short_url}</p>
+            <p>
+              {
+              apiResponse.short_url
+              }
+            </p>
           </div>
           )}
+
+          {!apiResponse && (
+            
+            <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
+              <h3>Decoded URL:</h3>
+                <p>
+                  Error
+                  </p>
+            </div>
+          )}
+
 
           {apiResponse && apiResponse.long_url && (
             
