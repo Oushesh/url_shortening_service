@@ -11,7 +11,6 @@ export default function LandingPageBody() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [longUrl, setLongUrl] = useState('');
   const [shortUrl, setShortUrl] = useState('');
-  const [decodedUrl, setDecodedUrl] = useState('');
 
   const [apiResponse, setApiResponse] = useState<APIResponse | null>(null);
   const [fetchOutput, setFetchOutput] = useState('');
@@ -20,15 +19,8 @@ export default function LandingPageBody() {
     setLongUrl(event.target.value);
   };
 
-  /*
-  const handleShortUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setShortUrl(event.target.value);
-  };
-  */
-
   const handleShortUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    //console.log('Form input value:', inputValue);
     setShortUrl(inputValue);
   };
 
