@@ -217,7 +217,7 @@ export default function LandingPageBody() {
 
           {apiResponse && apiResponse.short_url && (
           <div className="bold text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-2/3">
-          <h3>Encoded URL:</h3>
+          <h3>Encoded URL: https://wwww.short.com/</h3>
           <div className="text-[#075985]">
                 <p>{apiResponse.short_url}</p>
               </div>
