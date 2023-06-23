@@ -20,8 +20,16 @@ export default function LandingPageBody() {
     setLongUrl(event.target.value);
   };
 
+  /*
   const handleShortUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setShortUrl(event.target.value);
+  };
+  */
+
+  const handleShortUrlChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+    console.log('Form input value:', inputValue);
+    setShortUrl(inputValue);
   };
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -29,7 +37,7 @@ export default function LandingPageBody() {
 
     const url = new URL('http://127.0.0.1:8000/encode_url');
     url.searchParams.append('url_input', longUrl);
-    console.log(longUrl);
+    console.log(url);
     try {
       const response = await fetch(url.toString(), {
         method: 'GET',
@@ -39,6 +47,9 @@ export default function LandingPageBody() {
         const data = await response.json();
         setApiResponse(data);
         setFetchOutput(JSON.stringify(data));
+        console.log('Form input value inside the handleForm:', shortUrl); // Log the form input value here
+
+        console.log('Response data:', data); // Add this line to log the response data
       } else {
         console.error('API request failed:', response.statusText);
       }
@@ -47,23 +58,23 @@ export default function LandingPageBody() {
     }
   };
 
-  //Handle Submit for the LongURL
+  //Handle long form submit.
   const handleLongFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+  
     const url = new URL('http://127.0.0.1:8000/decode_url');
     url.searchParams.append('short_url', shortUrl);
-
+  
     try {
       const response = await fetch(url.toString(), {
         method: 'GET',
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         setApiResponse(data);
         setFetchOutput(JSON.stringify(data));
-        console.log(JSON.stringify(data));
+        console.log('Response data:', data); // Add this line to log the response data
       } else {
         console.error('API request failed:', response.statusText);
       }
@@ -71,6 +82,7 @@ export default function LandingPageBody() {
       console.error('API request failed:', error);
     }
   };
+  
 
   const items = [
     'note taking',
