@@ -216,19 +216,22 @@ export default function LandingPageBody() {
           </div>
 
           {apiResponse && apiResponse.short_url && (
-          <div className="bold text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-2/3">
-          <h3>Encoded URL: https://wwww.short.com/</h3>
-          <div className="text-[#075985]">
-                <p>{apiResponse.short_url}</p>
+          <div className="justify-center bold text-xl flex-col items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-full">
+              <div className="items-center">
+                <h3>Encoded URL:</h3>
+              </div> 
+              <div className="text-[#075985] items-center">
+                    <p>https://wwww.short.com/{apiResponse.short_url}</p>
               </div>
           </div>
           )}
 
-
           {apiResponse && apiResponse.long_url && (
             <div className="bold text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-full">
-              <h3>Decoded URL: </h3>
-              <div className="text-[#075985]">
+              <div className="items-center">
+                <h3>Decoded URL: </h3>
+              </div>
+              <div className="text-[#075985] items-center">
                 <p>{apiResponse.long_url}</p>
               </div>
             </div>
