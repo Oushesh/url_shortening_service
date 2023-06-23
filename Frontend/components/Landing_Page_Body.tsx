@@ -216,24 +216,20 @@ export default function LandingPageBody() {
           </div>
 
           {apiResponse && apiResponse.short_url && (
-          <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
+          <div className="bold text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-2/3">
           <h3>Encoded URL:</h3>
-            <p>
-              {
-              apiResponse.short_url
-              }
-            </p>
+          <div className="text-[#075985]">
+                <p>{apiResponse.short_url}</p>
+              </div>
           </div>
           )}
 
 
           {apiResponse && apiResponse.long_url && (
-            <div className="text-xl flex flex-col items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
-              <div>
-              <p>Decoded URL:</p>
-              </div>
-              <div>
-              <p>{apiResponse.long_url}</p>
+            <div className="bold text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-800 hover:bg-zinc-900 w-full">
+              <h3>Decoded URL: </h3>
+              <div className="text-[#075985]">
+                <p>{apiResponse.long_url}</p>
               </div>
             </div>
           )}
