@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import useAuth from '../hooks/useAuth'
-import getOTPFromUser from '@/components/getOTPFromUser'
 import OTP from '@/components/OTPModal'
 import {useRecoilState, useRecoilValue} from 'recoil';
 import {modalState,OTPmodalState} from '../atoms/modalAtom'

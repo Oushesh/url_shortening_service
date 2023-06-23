@@ -14,7 +14,9 @@ function RootLayout()
       <body className="bg-zinc-900 text-zinc-200">
         <div className="flex flex-col h-screen w-screen">
           <Header/>
-          <LandingPageBody/>
+          <div className="mt-10"> {/* Add margin-top (mt-8) to create spacing */}
+            <LandingPageBody />
+          </div>
         </div>
       </body>
       <footer>
