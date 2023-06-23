@@ -11,11 +11,6 @@ import useAuth from "@/hooks/useAuth";
 const Header = () => {
     const [search, setSearch] = useState("");
     const [showModal,setShowModal] = useRecoilState(OTPmodalState);
-    const [showRecommendations,setshowRecommendations] = useRecoilState(recommendationState);
-    const [showTwitterSearch,setShowTwitterSearch] = useRecoilState(TwitterSearchState);
-
-    const [currentMovie,setCurrentMovie] = useState(null);
-    const [clickPosition,setClickPosition] = useState({x:0,y:0});
     const {logout} = useAuth();
 
   function handleOpen() {
@@ -75,8 +70,6 @@ const Header = () => {
           
         </div>
         </div>
-        {/* Build the First Modal here for collapsable Menu */}
-
       </div>
     );
 };

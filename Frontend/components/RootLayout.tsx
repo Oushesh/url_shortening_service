@@ -24,6 +24,3 @@ function RootLayout()
 };
 
 export default RootLayout;
-
-//I use Semantic html to make my own website 
-//and will make my own money.
