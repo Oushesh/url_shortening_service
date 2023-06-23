@@ -1,3 +1,7 @@
+## How to run?
+   * git clone 
+
+
 ## How to perform the encoding part of the hash file and the decoding part?
 
 ## use the counter to increase the robustness of the encoding and decoding 
