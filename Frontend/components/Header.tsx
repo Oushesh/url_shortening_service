@@ -3,7 +3,7 @@ import {HiOutlineMenu,HiOutlineLogout} from "react-icons/hi";
 import Image from "next/image";
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import { recommendationState, TwitterSearchState, OTPmodalState, modalState } from "../atoms/modalAtom";
+import { modalState,OTPmodalState } from "../atoms/modalAtom";
 import { useRecoilState } from "recoil";
 import {BellIcon} from '@heroicons/react/solid';
 import useAuth from "@/hooks/useAuth";
