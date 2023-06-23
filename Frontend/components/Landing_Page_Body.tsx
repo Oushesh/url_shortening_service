@@ -216,7 +216,7 @@ export default function LandingPageBody() {
           </div>
 
           {apiResponse && apiResponse.short_url && (
-          <div className="mt-4 text-white">
+          <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
           <h3>Encoded URL:</h3>
             <p>
               {
@@ -226,26 +226,11 @@ export default function LandingPageBody() {
           </div>
           )}
 
-          {!apiResponse && (
-            
-            <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
-              <h3>Decoded URL:</h3>
-                <p>
-                  Error
-                  </p>
-            </div>
-          )}
-
 
           {apiResponse && apiResponse.long_url && (
-            
-            <div className="text-xl flex items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
+            <div className="text-xl flex flex-col items-center p-4 rounded-full cursor-pointer bg-zinc-700 hover:bg-zinc-800 w-full">
               <h3>Decoded URL:</h3>
-                <p>
-                  {
-                  apiResponse.long_url
-                  }
-                  </p>
+              <p>{apiResponse.long_url}</p>
             </div>
           )}
 
