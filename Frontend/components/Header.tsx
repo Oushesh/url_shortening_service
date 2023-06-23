@@ -1,4 +1,4 @@
-import { BsYoutube,BsMicFill, BsBell, BsCameraVideo } from "react-icons/bs";
+import {BsMicFill, BsBell, BsCameraVideo } from "react-icons/bs";
 import {HiOutlineMenu,HiOutlineLogout} from "react-icons/hi";
 import Image from "next/image";
 import { useState } from "react";
