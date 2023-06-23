@@ -58,7 +58,8 @@ def decode_url(short_url: str, redirect: bool = False):
     print ("short_url",short_url)
     # Retrieve the mapping from the database
     url_mapping = db.urls.find_one({"short_url": short_url})
-
+    print ("object searched",short_url)
+    print ("decoding mapping",url_mapping)
     # Print the cache from the database
     cache = list(db.urls.find())
     print("Cache from MongoDB:")

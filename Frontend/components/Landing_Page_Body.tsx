@@ -63,7 +63,7 @@ export default function LandingPageBody() {
     event.preventDefault();
   
     const url = new URL('http://127.0.0.1:8000/decode_url');
-    url.searchParams.append('short_url', shortUrl);
+    url.searchParams.append('short_url', longUrl);
   
     try {
       const response = await fetch(url.toString(), {
@@ -74,6 +74,8 @@ export default function LandingPageBody() {
         const data = await response.json();
         setApiResponse(data);
         setFetchOutput(JSON.stringify(data));
+        console.log('decoding input:',longUrl);
+
         console.log('Response data:', data); // Add this line to log the response data
       } else {
         console.error('API request failed:', response.statusText);
