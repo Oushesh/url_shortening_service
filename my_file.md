@@ -1,6 +1,55 @@
-## How to run?
-   * git clone 
+## See live in action:
+   This project is a fullstack app with NextJS frontend and
+   authentication implemented using Google Firebase.
+   
+   You can choose to run whichever backend you want: FastAPI or Django.
+   I prefer Django because it has bigger support whereas FastAPI is faster
+   if speed is needed. Both backends work equivalently.
+   
 
+   The frontend is live at:
+## Installation:
+   The frontend was entirely built using Tailwindcss, heroicons
+   react-icons and Nextjs
+   
+   * cd Frontend: 
+     * yarn run build
+     * yarn run start
+     * for quick dev changes and seeing live results: yarn run dev
+   
+   Backend is built both on Django and FastAPI. Choose the folder
+   you want. 
+
+   * Backend: 
+     cd Backend (choose whichever you want)
+       * Django
+         * Create a virtualenvironment: https://pypi.org/project/virtualenvwrapper/
+         * pip install -r requirements.txt
+         * python manage.py makemigrations
+         * python manage.py migrate
+         * python manage.py runserver
+
+     * FastAPI:
+       * Create a virtualenvironment: https://pypi.org/project/virtualenvwrapper/
+       * pip install -r requirements.txt
+       * make sure to install uvicorn as well
+       * uvicorn app:app --reload (version without Database)
+       * uvicorn app_mongoDB:app --reload (version with Database for production purposes)
+
+## RUN Docker: 
+   * git clone https://github.com/Oushesh/url_shortening_service.git
+   * Backend: ce Backend
+     * Django: cd Django
+       * docker compose up 
+            -- This will build the docker file and runs the backend locally.
+            -- This docker is for dev purposes usually my strategy of deploying is
+               to have one Docker for dev and another one for prod. It speeds up
+               development processs. 
+       * 
+
+## RUN Classical:
+   * git clone https://github.com/Oushesh/url_shortening_service.git
+   
 
 ## How to perform the encoding part of the hash file and the decoding part?
 
@@ -9,6 +58,14 @@
 
 ## Technicalities:
    * 
+
+
+## My Development Philosophy and Style.
+   CI/CD pipeline 
+   * Django: 
+   
+   * FastAPI:
+
 
 ## Deployment:
    * Docker file. docker.yaml needed.
