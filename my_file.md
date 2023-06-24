@@ -9,7 +9,11 @@
    The frontend is live at: 
    https://url-shortening-service-1qcmlgxyq-oushesh.vercel.app/
    
-
+   The Backend is deployed also by hacking on vercel so I don't 
+   pay price for hosting: 
+   
+   FastAPI Backend:
+   Django Backend:
 ## How it all looks and works:
    * Put the GIF here and how live testing was done.
 
