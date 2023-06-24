@@ -25,6 +25,8 @@ SECRET_KEY = "django-insecure-ir725h!736e8!+%b8%@_@pzr$%-c!h5umhj#jcq&34=vv=nf8f
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0',
+                '127.0.0.1',
+                 '.vercel.app',
                  '*',
                  ]
 
@@ -128,3 +130,4 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+

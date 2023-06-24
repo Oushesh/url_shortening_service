@@ -66,3 +66,9 @@ will have the same IP address which would not work.
    * npx create-next-app@latest
    * yarn run build
    * yarn run start
+
+
+## Reference: 
+   * https://github.com/hebertcisco/deploy-python-fastapi-in-vercel/tree/main
+   * https://github.com/vercel/examples/tree/main/python/django
+   * Tests: pytest
