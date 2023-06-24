@@ -5,6 +5,8 @@ from cachetools import Cache
 from hashlib import md5
 from itertools import count
 
+from src.msg.data import data
+
 app = FastAPI()
 cache = Cache(maxsize=100)  # Unbounded cache
 counter = count(1)  # Counter starting from 1

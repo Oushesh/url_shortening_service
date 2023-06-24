@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 
-class ISayHelloDto(BaseModel):
+class data(BaseModel):
     message: str
