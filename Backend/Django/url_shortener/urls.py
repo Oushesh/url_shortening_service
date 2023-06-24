@@ -25,6 +25,7 @@ from url_app.api.v1.routers.decode_url import router as decode_url_router
 from url_app.api.v1.routers.encode_url import router as encode_url_router
 
 from pathlib import Path
+from url_app.views import index
 
 #next for ninja api we add the routers.
 api = NinjaAPI()
@@ -33,7 +34,8 @@ api.add_router("/decode_url",decode_url_router)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/",api.urls)
+    path("api/",api.urls),
+    path("",index),
 ]
 
 #We can also add the option for settings debug or other things here.
