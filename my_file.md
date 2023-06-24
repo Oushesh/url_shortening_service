@@ -7,6 +7,12 @@
    if speed is needed. Both backends work equivalently.
 
    The frontend is live at: 
+   https://url-shortening-service-1qcmlgxyq-oushesh.vercel.app/
+   
+
+## How it all looks and works:
+   * Put the GIF here and how live testing was done.
+
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
