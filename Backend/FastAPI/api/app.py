@@ -14,7 +14,11 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     # Add more allowed origins if needed
-    "*"
+    ".vercel.app",
+    "https://url-shortening-service-ol9j-asrsz3ovb-oushesh.vercel.app/encode_url",
+    "https://url-shortening-service-ol9j-asrsz3ovb-oushesh.vercel.app/decode_url",
+    "*",
+    "*",
 ]
 
 app.add_middleware(
