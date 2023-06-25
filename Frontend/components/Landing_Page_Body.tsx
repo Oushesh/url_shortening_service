@@ -27,7 +27,7 @@ export default function LandingPageBody() {
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const url = new URL('http://127.0.0.1:8000/encode_url');
+    const url = new URL('https://url-shortening-service-59tw.vercel.app/encode_url');
     url.searchParams.append('url_input', shortUrl);
     console.log(url);
     try {
@@ -54,7 +54,7 @@ export default function LandingPageBody() {
   const handleLongFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   
-    const url = new URL('http://127.0.0.1:8000/decode_url');
+    const url = new URL('https://url-shortening-service-59tw.vercel.app/decode_url');
     url.searchParams.append('short_url', longUrl);
   
     try {
