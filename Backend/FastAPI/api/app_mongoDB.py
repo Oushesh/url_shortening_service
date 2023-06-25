@@ -24,6 +24,8 @@ origins = [
     "http://localhost:3000",
     # Add more allowed origins if needed
     ".vercel.app",
+    "https://url-shortening-service-59tw-opsekjti7-oushesh.vercel.app/encode_url",
+    "https://url-shortening-service-59tw-opsekjti7-oushesh.vercel.app/decode_url",
     "*",
 ]
 
