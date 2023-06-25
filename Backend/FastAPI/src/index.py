@@ -43,7 +43,6 @@ def decode_url(short_url: str, redirect: bool = False):
     if long_url:
         if redirect:
             if long_url.startswith("http://") or long_url.startswith("https://"):
-
                 return RedirectResponse(url=long_url)
             else:
                 return {"error": "Invalid URL format for redirection"}
