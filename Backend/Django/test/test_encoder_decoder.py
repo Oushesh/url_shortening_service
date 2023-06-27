@@ -5,7 +5,7 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from  import data
+from  url_app.api.v1.schemas import data
 from src.index import encode_url, decode_url
 
 class TestURLShortenerFail:
@@ -20,7 +20,7 @@ class TestURLShortenerFail:
             "https://www.example.com",
             "https://www.github.com",
             "https://www.openai.com",
-            "https://www.invalidurl.com",  # Invalid URL intentionally added
+            "https://www.invalidurl.com",  
             "https://www.example.com/page?param1=value1&param2=value2&param3=value3",
             "https://www.google.com/search?q=python+programming&num=10",
             "https://www.github.com/repo/issues?state=open&labels=bug",
