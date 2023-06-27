@@ -9,16 +9,10 @@ parent = os.path.dirname(current)
 sys.path.append(parent)
 sys.path.append(os.path.join(parent, 'url_app'))  # Append url_app directory
 
-print(parent)
-
-from url_app.api.v1.schemas.message import data
-from url_app.api.v1.routers.encode_url import encode_url
-from url_app.api.v1.routers.decode_url import decode_url
-
 
 class TestURLShortenerFail:
     encoded_URL = "http://127.0.0.1:8000/api/encode_url/encode_url"
-    decoded_URL = "http://127.0.0.1:8000/api/encode_url/encode_url"
+    decoded_URL = "http://127.0.0.1:8000/api/decode_url/decode_url"
 
     @pytest.mark.asyncio
     async def test_encode_decode_recover(self):
@@ -44,11 +38,13 @@ class TestURLShortenerFail:
 
                 data = encoded_response.json()
                 encoded_data = data["short_url"]
+                print ("encoded_data",encoded_data)
 
                 decoded_params = {"short_url": encoded_data}
                 decoded_response = requests.get(self.decoded_URL, params=decoded_params)
 
-                original_url = decoded_response.json()["long_url"]
+                print (decoded_response.json())
+                original_url = decoded_response.json()["error"]
                 assert url == original_url
 
             except AssertionError:

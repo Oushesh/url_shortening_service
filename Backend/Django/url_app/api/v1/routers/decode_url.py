@@ -9,18 +9,19 @@ from django.core.cache import cache
 router = Router()
 counter = count()
 
-
-#Read the collections
 @router.get("/decode_url")
-def decode_url(request,short_url: str,redirect:bool = False):
-    assert (isinstance(short_url,str))
-    # Access the cached dictionary
-    url_mapping = cache.get("url_mapping",{})
-    print ("cache",url_mapping)
-    #Example dict:
-    for key, value in url_mapping.items():
-        #if key.startswith(short_url[:6]):
-        if key.startswith(short_url):
-            return {"long_url": value}
-    return {"error": "Short URL not found"}
+def decode_url(request,short_url: str, redirect: bool = False):
+    url_mapping = cache.get("url_mapping", {})
+    long_url = url_mapping.get(short_url, '')
+    print("cache:", long_url)
+    if long_url:
+        if redirect:
+            if long_url.startswith("http://") or long_url.startswith("https://"):
 
+                return RedirectResponse(url=long_url)
+            else:
+                return {"error": "Invalid URL format for redirection"}
+        else:
+            return {"long_url": long_url}
+    else:
+        return {"error": "Short URL not found"}

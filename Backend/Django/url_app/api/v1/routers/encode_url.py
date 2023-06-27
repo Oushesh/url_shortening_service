@@ -32,3 +32,4 @@ def encode_url(request,url_input: str):
 
 ##Keep the values in Django cache backend --> I added the settings
 #django cache
+
