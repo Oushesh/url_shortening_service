@@ -10,7 +10,6 @@ sys.path.append(parent)
 
 
 class TestURLShortenerFail:
-
     encoded_URL = "http://127.0.0.1:8000/api/encode_url"
     decoded_URL = "http://127.0.0.1:8000/api/decode_url"
 
@@ -36,15 +35,14 @@ class TestURLShortenerFail:
                 assert encoded_response.status_code == 200
 
                 data = encoded_response.json()
+                print (data)
                 encoded_data = data["short_url"]
 
                 decoded_params = {"short_url": encoded_data}
                 decoded_response = requests.get(self.decoded_URL, params=decoded_params)
-
-                try:
-                    original_url = decoded_response.json()["long_url"]
-                except KeyError:
-                    original_url = decoded_response.json()["error"]
+                print (decoded_response.json())
+                
+                original_url = decoded_response.json()["long_url"]
                 assert url == original_url
 
             except AssertionError:
@@ -54,7 +52,4 @@ class TestURLShortenerFail:
             pytest.fail("\n".join(errors))
 
 
-
-        if errors:
-            pytest.fail("\n".join(errors))
 
