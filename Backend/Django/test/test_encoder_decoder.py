@@ -10,8 +10,8 @@ from src.index import encode_url, decode_url
 
 class TestURLShortenerFail:
 
-    encoded_URL = "http://127.0.0.1:8000/encode_url"
-    decoded_URL = "http://127.0.0.1:8000/decode_url"
+    encoded_URL = "http://127.0.0.1:8000/api/encode_url"
+    decoded_URL = "http://127.0.0.1:8000/api/decode_url"
 
     @pytest.mark.asyncio
     async def test_encode_decode_recover(self):
