@@ -1,15 +1,20 @@
 import pytest
-import json, requests
-import os,sys
+import json
+import requests
+import os
+import sys
+
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
+sys.path.append(os.path.join(parent, 'url_app'))  # Append url_app directory
 
-print (parent)
+print(parent)
 
 from url_app.api.v1.schemas.message import data
 from url_app.api.v1.routers.encode_url import encode_url
 from url_app.api.v1.routers.decode_url import decode_url
+
 
 class TestURLShortenerFail:
     encoded_URL = "http://127.0.0.1:8000/api/encode_url/encode_url"
