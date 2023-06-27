@@ -65,14 +65,9 @@
 ## use the counter to increase the robustness of the encoding and decoding 
    part to increase hash frequency with a counter to avoid collision when the Hash MD5 is 
 
-## Technicalities:
-   * 
-
-
 ## My Development Philosophy and Style.
    CI/CD pipeline 
-   * Django: 
-   
+   * Django:    
    * FastAPI:
 
 
@@ -93,7 +88,7 @@
 
      The mD5 only uses 7 characters and the encoding produces 128bit characters. 
      To prevent collisoin we save the results in dictionary either in redis or 
-     postgresql database (I prefere Supabase)
+     postgresql database (I prefer Supabase)
 
     The advantages is that this approach MD5 saves some space. Space
     (storage) is more expensive than compute for these kind of applications
@@ -115,4 +110,6 @@
 
 ## Reference:
    * https://www.geeksforgeeks.org/system-design-url-shortening-service/
-   * 
+
+## Testing:
+   * pytest

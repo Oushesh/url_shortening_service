@@ -5,12 +5,13 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-
+from  import data
+from src.index import encode_url, decode_url
 
 class TestURLShortenerFail:
 
-    encoded_URL = "https://url-shortening-service-ol9j.vercel.app/encode_url"
-    decoded_URL = "https://url-shortening-service-ol9j.vercel.app/decode_url"
+    encoded_URL = "http://127.0.0.1:8000/encode_url"
+    decoded_URL = "http://127.0.0.1:8000/decode_url"
 
     @pytest.mark.asyncio
     async def test_encode_decode_recover(self):
