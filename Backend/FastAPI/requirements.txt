@@ -4,3 +4,4 @@ uvicorn[standard]
 cachetools
 pydantic
 pytest-asyncio
+pymongo
