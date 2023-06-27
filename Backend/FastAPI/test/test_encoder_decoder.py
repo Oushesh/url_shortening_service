@@ -8,7 +8,7 @@ sys.path.append(parent)
 from src.msg.data import data
 from src.index import encode_url, decode_url
 
-class TestURLShortenerFail:
+class TestURLShortener:
 
     encoded_URL = "https://url-shortening-service-ol9j.vercel.app/encode_url"
     decoded_URL = "https://url-shortening-service-ol9j.vercel.app/decode_url"
@@ -40,7 +40,10 @@ class TestURLShortenerFail:
                 decoded_params = {"short_url": encoded_data}
                 decoded_response = requests.get(self.decoded_URL, params=decoded_params)
 
-                original_url = decoded_response.json()["long_url"]
+                try:
+                    original_url = decoded_response.json()["long_url"]
+                except KeyError:
+                    original_url = decoded_response.json()["error"]
                 assert url == original_url
 
             except AssertionError:
