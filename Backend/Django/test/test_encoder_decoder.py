@@ -5,12 +5,12 @@ current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
 
-from  url_app.api.v1.schemas.message import data
-from src.index import encode_url, decode_url
+#from  url_app.api.v1.schemas.message import data
+#from src.index import encode_url, decode_url
 
 class TestURLShortenerFail:
 
-    encoded_URL = "http://127.0.0.1:8000/api/encode_url"
+    encoded_URL = "'http://127.0.0.1:8000/api/encode_url"
     decoded_URL = "http://127.0.0.1:8000/api/decode_url"
 
     @pytest.mark.asyncio
