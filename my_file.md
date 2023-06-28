@@ -12,7 +12,9 @@
    The Backend is deployed also by hacking on vercel so I don't 
    pay price for hosting.
    
-   FastAPI Backend with MongoDB database for production can be accessed from here (optional):
+   FastAPI Backend:
+   
+    with MongoDB database for production can be accessed from here (optional):
    https://github.com/Oushesh/url-shortening_service_fastapi_mongodb
 
    You can build the git and run locally and you will get the output.
@@ -20,7 +22,14 @@
    The Fast API Backend connected correctly with Frontend in NEXTJS 
    is under the folder FastAPI here deployed at: 
    
-   Django Backend
+      * https://url-shortening-service-ol9j.vercel.app/docs#/
+
+      You will see the API on Swagger UI. This api is connected to the 
+      frontend.
+
+   Django Backend:
+
+
 
 
 ## How it all looks and works:
