@@ -107,7 +107,17 @@
    * https://www.geeksforgeeks.org/system-design-url-shortening-service/
 
 ## Testing:
-   * pytest
+   I did not bother adding tests for the frontend.
+   For the backend:
+   * FastAPI: 
+      cd Backend/FastAPI:
+      pytest
+   
+   * Django:
+     cd Backend/Django:
+     pytest
+   
+   Each test consists of 10-11 urls to be encoded and recovered to its original one.
 
 ## Merging Branches:
    * main.yml github action runs the tests evoked by pytest.
