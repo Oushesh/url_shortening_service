@@ -15,7 +15,8 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r Backend/Django/requirements.txt
+        pip install -r Backend/FastAPI/requirements.txt
 
       - name: Run pytest
         run: pytest
