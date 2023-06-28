@@ -47,14 +47,14 @@
 
 ## RUN Docker: 
    * git clone https://github.com/Oushesh/url_shortening_service.git
-   * Backend: ce Backend
+   * Backend: 
      * Django: cd Django
        * docker compose up 
             -- This will build the docker file and runs the backend locally.
             -- This docker is for dev purposes usually my strategy of deploying is
                to have one Docker for dev and another one for prod. It speeds up
                development processs. 
-       * 
+       
 
 ## RUN Classical:
    * git clone https://github.com/Oushesh/url_shortening_service.git
@@ -74,7 +74,6 @@
 ## Deployment:
    * Docker file. docker.yaml needed.
  
-
 ## Technical Debate on the url shortening service:
    
     * URL Shortening Logic (Encoding):
