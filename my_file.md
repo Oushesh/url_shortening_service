@@ -10,13 +10,42 @@
    https://url-shortening-service-1qcmlgxyq-oushesh.vercel.app/
    
    The Backend is deployed also by hacking on vercel so I don't 
-   pay price for hosting: 
+   pay price for hosting.
    
    FastAPI Backend:
+   
+    with MongoDB database for production can be accessed from here (optional):
+   https://github.com/Oushesh/url-shortening_service_fastapi_mongodb
+
+   You can build the git and run locally and you will get the output.
+
+   The Fast API Backend connected correctly with Frontend in NEXTJS 
+   is under the folder FastAPI here deployed at: 
+   
+      * https://url-shortening-service-ol9j.vercel.app/docs#/
+
+      You will see the API on Swagger UI. This api is connected to the 
+      frontend.
+
    Django Backend:
+   The Django Backend uses Ninja API with routers and schemas.
+   It works similarly to the FastAPI.
+
+   Follow the instructions below and you can run the backend Django locally
+   and either test it on Swagger UI or with the frontend directly.
+
+   For Django run the instructions below and you will can test it 
+   on the browser at:
+
+   http://127.0.0.1:8000/api/
+   See the screenshot below:
+
+   ![](Backend/Django/docs/)
+   ![](Backend/Django/docs/)
+
 ## How it all looks and works:
    * Put the GIF here and how live testing was done.
-
+   
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
@@ -75,7 +104,6 @@
    * Docker file. docker.yaml needed.
  
 ## Technical Debate on the url shortening service:
-   
     * URL Shortening Logic (Encoding):
      The hashing I went for is MD5. People can use others like Base62 
      Encoding etc...
@@ -102,11 +130,8 @@
    have the same number. So instead every server has a range then can count
    upto and thus if one fails we ensure no overlap.
 
-## Reference:
-   * https://www.geeksforgeeks.org/system-design-url-shortening-service/
-
 ## Testing:
-   I did not bother adding tests for the frontend.
+   I did not bother adding tests for the frontend for now
    For the backend:
    * FastAPI: 
       cd Backend/FastAPI:
@@ -118,6 +143,12 @@
    
    Each test consists of 10-11 urls to be encoded and recovered to its original one.
 
-## Merging Branches:
-   * main.yml github action runs the tests evoked by pytest.
+   * main.yml github action runs the tests evoked by pytest when a different user or anyone makes a branch and commits to main.
 
+   Test-run include: .github/workflow/main.yml (github actions)
+   and git guardian secrets.
+
+## Reference:
+   * https://www.geeksforgeeks.org/system-design-url-shortening-service/
+
+   
