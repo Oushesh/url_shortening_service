@@ -110,4 +110,5 @@
    * pytest
 
 ## Merging Branches:
-   * main.yml github action
+   * main.yml github action runs the tests evoked by pytest.
+
