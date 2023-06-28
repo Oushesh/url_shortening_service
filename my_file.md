@@ -28,13 +28,24 @@
       frontend.
 
    Django Backend:
+   The Django Backend uses Ninja API with routers and schemas.
+   It works similarly to the FastAPI.
 
+   Follow the instructions below and you can run the backend Django locally
+   and either test it on Swagger UI or with the frontend directly.
 
+   For Django run the instructions below and you will can test it 
+   on the browser at:
 
+   http://127.0.0.1:8000/api/
+   See the screenshot below:
+
+   ![](Backend/Django/docs/)
+   ![](Backend/Django/docs/)
 
 ## How it all looks and works:
    * Put the GIF here and how live testing was done.
-
+   
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
