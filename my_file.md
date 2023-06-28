@@ -40,26 +40,25 @@
    http://127.0.0.1:8000/api/
    See the screenshot below:
 
-   ![](Backend/Django/docs/)
-   ![](Backend/Django/docs/)
+   ![](Backend/Django/docs/decode.png)
+   ![](Backend/Django/docs/encode.png)
 
-## How it all looks and works:
-   * Put the GIF here and how live testing was done.
    
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
    
-   * cd Frontend: 
-     * yarn run build
-     * yarn run start
-     * for quick dev changes and seeing live results: yarn run dev
+   * FRONTEND:
+      cd Frontend: 
+      * yarn run build
+      * yarn run start
+      * for quick dev changes and seeing live results: yarn run dev
    
    Backend is built both on Django and FastAPI. Choose the folder
    you want. 
 
    * Backend: 
-     cd Backend (choose whichever you want)
+      cd Backend (choose whichever you want)
        * Django
          * Create a virtualenvironment: https://pypi.org/project/virtualenvwrapper/
          * pip install -r requirements.txt
@@ -67,28 +66,26 @@
          * python manage.py migrate
          * python manage.py runserver
 
-     * FastAPI:
+      * FastAPI:
        * Create a virtualenvironment: https://pypi.org/project/virtualenvwrapper/
        * pip install -r requirements.txt
        * make sure to install uvicorn as well
-       * uvicorn app:app --reload (version without Database)
-       * uvicorn app_mongoDB:app --reload (version with Database for production purposes)
-
+       * uvicorn main:app --reload
+       
 ## RUN Docker: 
    * git clone https://github.com/Oushesh/url_shortening_service.git
    * Backend: 
-     * Django: cd Django
+     * Django: cd Backend/Django
        * docker compose up 
             -- This will build the docker file and runs the backend locally.
             -- This docker is for dev purposes usually my strategy of deploying is
                to have one Docker for dev and another one for prod. It speeds up
                development processs. 
-       
+      * FastAPI: cd Backend/
 
 ## RUN Classical:
    * git clone https://github.com/Oushesh/url_shortening_service.git
    
-
 ## How to perform the encoding part of the hash file and the decoding part?
 
 ## use the counter to increase the robustness of the encoding and decoding 
