@@ -2,6 +2,8 @@
    This project is a fullstack app with NextJS frontend and
    authentication implemented using Google Firebase.
    
+
+   ![](Frontend/)
    You can choose to run whichever backend you want: FastAPI or Django.
    I prefer Django because it has bigger support whereas FastAPI is faster
    if speed is needed. Both backends work equivalently.
@@ -47,7 +49,7 @@
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
-   
+
    * FRONTEND:
       cd Frontend: 
       * yarn run build
