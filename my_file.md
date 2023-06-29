@@ -1,10 +1,17 @@
 ## See live in action:
    This project is a fullstack app with NextJS frontend and
    authentication implemented using Google Firebase.
+   Below I shared the screenshot showcasing the design
+   and then the .gif which demonstrates a live 
+   screenshare as well as the .mov movie QuickPlay
+   video recording can also be downloaded.
+   (Frontend/docs/Full_Demo.mov)
    
    ![](Frontend/docs/encoded_frontend.png)
    ![](Frontend/docs/decoded_frontend.png)
    ![](Frontend/docs/frontend_decoded.png)
+
+   ![](Frontend/docs/demo.gif)
    You can choose to run whichever backend you want: FastAPI or Django.
    I prefer Django because it has bigger support whereas FastAPI is faster
    if speed is needed. Both backends work equivalently.
