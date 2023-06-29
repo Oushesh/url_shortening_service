@@ -11,13 +11,13 @@ from django.core.cache import cache
 
 counter = count()
 router = Router()
-class URLInput(BaseModel):
-    url: str
-class URLOutput(BaseModel):
-    short_url: str
+
 
 @router.get("/encode_url")
 def encode_url(request,url_input: str):
+    
+    assert (isinstance(url_input,str))
+    assert (url_input.startswith("https://") or url_input.startswith("http://"))
     # Access and modify the cache
     url_mapping = cache.get("url_mapping",{})
 
@@ -30,6 +30,5 @@ def encode_url(request,url_input: str):
     cache.set('url_mapping',url_mapping)
     return {"short_url": short_url}
 
-##Keep the values in Django cache backend --> I added the settings
-#django cache
+
 

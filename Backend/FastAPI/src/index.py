@@ -30,6 +30,9 @@ app.add_middleware(
 @app.get("/encode_url")
 def encode_url(url_input: str):
     print ("encoding input:",url_input)
+    assert (isinstance(url_input,str))
+    assert (url_input.startswith("https://") or url_input.startswith("http://"))
+
     md5_hash = md5(url_input.encode()).hexdigest()
     short_url = f'{md5_hash[:6]}{next(counter)}'
     cache[short_url] = url_input

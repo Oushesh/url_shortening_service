@@ -152,4 +152,6 @@
    google firebase for authentication: 
    
 
-   
+## Endpoints:
+   Both the encoding ones and decodings in FastAPI as well as Django 
+   are named: encode_url and decode_url instead of encode and decode.
