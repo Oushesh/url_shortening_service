@@ -45,8 +45,7 @@
 
    ![](Backend/Django/docs/decode.png)
    ![](Backend/Django/docs/encode.png)
-
-   
+  
 ## Installation:
    The frontend was entirely built using Tailwindcss, heroicons
    react-icons and Nextjs
@@ -99,9 +98,10 @@
    * Django:    
    * FastAPI:
 
-
 ## Deployment:
-   * Docker file. docker.yaml needed.
+   * docker compose up for backend
+   *  Deployment on vercel for both frontend and backend.
+      Vercel is free.
  
 ## Technical Debate on the url shortening service:
     * URL Shortening Logic (Encoding):
@@ -109,8 +109,7 @@
      Encoding etc...
 
      The mD5 only uses 7 characters and the encoding produces 128bit characters. 
-     To prevent collisoin we save the results in dictionary either in redis or 
-     postgresql database (I prefer Supabase)
+     To prevent collisoin we save the results in dictionary either in redis postgresql database, MongoDB, Supabase, etc...
 
     The advantages is that this approach MD5 saves some space. Space
     (storage) is more expensive than compute for these kind of applications
@@ -122,7 +121,7 @@
     md5 encoded string ensures no 2 strings are the same. 
 
    Also all encoded strings are saved in memory (cache) and checked
-   before encoding and decoding. (no duplicate entries)
+   before encoding and decoding. (no duplicate entries). 
    
    For scalablity just use posgresql or redis database. During scaling
    we can use multiserver approach and also to ensure that in the 
@@ -131,7 +130,7 @@
    upto and thus if one fails we ensure no overlap.
 
 ## Testing:
-   I did not bother adding tests for the frontend for now
+   I did not bother adding tests for the frontend for now.
    For the backend:
    * FastAPI: 
       cd Backend/FastAPI:
@@ -148,7 +147,9 @@
    Test-run include: .github/workflow/main.yml (github actions)
    and git guardian secrets.
 
-## Reference:
-   * https://www.geeksforgeeks.org/system-design-url-shortening-service/
+## Ownership:
+   All code is mine. The frontend I built for another project with 
+   google firebase for authentication: 
+   
 
    
